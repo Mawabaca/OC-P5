@@ -1,0 +1,43 @@
+.banner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 40px 0;
+}
+
+.banner-container img {
+  object-fit: cover;
+  border-radius: 25px;
+  width: 100%;
+  height: 55.9%;
+  max-width: 1240px;
+  max-height: 223px;
+}
+
+.banner-container.home img {
+  filter: brightness(35%);
+}
+
+.banner-container h1 {
+  position: absolute;
+  color: #fff;
+  font-size: 2.45rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .banner-container {
+    max-height: 200px;
+    margin: 20px 0;
+  }
+  .banner-container img {
+    height: 150px;
+  }
+  .banner-container h1 {
+    font-size: 24px;
+    text-align: left;
+    width: 80%;
+    padding: 20px;
+  }
+}

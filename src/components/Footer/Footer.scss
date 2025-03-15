@@ -1,0 +1,16 @@
+.footer-container {
+    background-color: #000;
+    text-align: center;
+    padding: 50px 50px;
+    line-height: 50px;
+    
+    p {
+        font-size: 24px; 
+        font-weight: 500;
+        color: #FFFFFF;
+
+        @media (max-width: 480px) {
+            font-size: 12px; 
+        }
+    }
+}

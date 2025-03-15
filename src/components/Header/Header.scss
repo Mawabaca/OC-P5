@@ -1,0 +1,37 @@
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding: 0 17.5%;
+  }
+  .header-container nav {
+    display: flex;
+    font-size: 24px;
+    font-weight: 500;
+    gap: 57px;
+  }
+  .header-container nav a {
+    color: black;
+    text-decoration: none;
+  }
+  
+  .header-container nav a.active {
+    text-decoration: underline 1px solid;
+}
+
+  @media (max-width: 768px) {
+    .header-container {
+        margin-bottom: 10px;
+        padding: 0 10%;
+    }
+    .header-container nav {
+      gap: 26px;
+    }
+    .header-container img {
+      height: 43px;
+    }
+    .header-container a {
+      font-size: 14px;
+    }
+  }
