@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
 import logements from '../../data/logements.json';
 import Carousel from '../../components/Carousel/Carousel';
 import Tags from '../../components/Tags/Tags';
@@ -11,18 +11,9 @@ export default function Logement() {
   const { id } = useParams();
   const logement = logements.find((item) => item.id === id);
 
-  const dropdownData = [
-    {
-      id: 'description',
-      title: 'Description',
-      text: logement.description, 
-    },
-    {
-      id: 'equipments',
-      title: 'Équipements',
-      text: logement.equipments,   
-    },
-  ];
+  if (!logement) {
+    return <Navigate to="*" replace />;
+  }
 
   return (
     <main className="logement-page-container">
@@ -38,7 +29,11 @@ export default function Logement() {
           <Rating rating={logement.rating} />
         </div>
       </div>
-      <Dropdown data={dropdownData} />
+      
+      <div className="dropdown-list">
+        <Dropdown title="Description" content={logement.description} />
+        <Dropdown title="Équipements" content={logement.equipments} isList />
+      </div>
     </main>
   );
 }

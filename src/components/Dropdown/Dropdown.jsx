@@ -2,38 +2,31 @@ import { useState } from 'react';
 import './Dropdown.scss';
 import arrow from '../../assets/arrow.webp';
 
-function Dropdown({ data }) {
-  const [activeDropdownIndex, setActiveDropdownIndex] = useState([]);
+function Dropdown({ title, content, isList = false }) {
+  const [isOpen, setIsOpen] = useState(false);
 
-  const handleToggle = (index) => {
-    if (activeDropdownIndex.includes(index)) {
-      setActiveDropdownIndex(activeDropdownIndex.filter((i) => i !== index));
-    } else {
-      setActiveDropdownIndex([...activeDropdownIndex, index]);
-    }
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
-    <div className="dropdown-list">
-      {data.map((item, index) => (
-        <div key={item.id || index} className="dropdown-item">
-          <div className="dropdown-title" onClick={() => handleToggle(index)}>
-            <h3>{item.title}</h3>
-            <span className={`dropdown-arrow ${activeDropdownIndex.includes(index) ? 'open' : ''}`}>
-              <img src={arrow} alt="arrow icon" />
-            </span>
-          </div>
-          <div className={`dropdown-content ${activeDropdownIndex.includes(index) ? 'open' : ''}`}>
-            <div className="dropdown-text">
-              {Array.isArray(item.text) ? (
-                item.text.map((elem, idx) => <p key={idx}>{elem}</p>)
-              ) : (
-                <p>{item.text}</p>
-              )}
-            </div>
-          </div>
+    <div className="dropdown-item">
+      <div className="dropdown-title" onClick={handleToggle}>
+        <h3>{title}</h3>
+        <span className={`dropdown-arrow ${isOpen ? 'open' : ''}`}>
+          <img src={arrow} alt="arrow icon" />
+        </span>
+      </div>
+
+      <div className={`dropdown-content ${isOpen ? 'open' : ''}`}>
+        <div className="dropdown-text">
+          {isList && Array.isArray(content) ? (
+            content.map((elem, idx) => <p key={idx}>{elem}</p>)
+          ) : (
+            <p>{content}</p>
+          )}
         </div>
-      ))}
+      </div>
     </div>
   );
 }

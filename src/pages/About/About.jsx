@@ -7,8 +7,18 @@ function About() {
   return (
     <main className="page-container about-page">
       <Banner />
-      <Dropdown data={aboutData} />
+      
+      <div className="dropdown-list">
+        {aboutData.map((item, index) => (
+          <Dropdown 
+            key={index} 
+            title={item.title} 
+            content={item.text} 
+          />
+        ))}
+      </div>
     </main>
   );
 }
+
 export default About;

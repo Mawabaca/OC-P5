@@ -1,6 +1,6 @@
 import './App.scss'
 import { Route, Routes } from 'react-router-dom'
-import Header from './components/Header/header'
+import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import Landing from './pages/Landing/Landing'
 import About from './pages/About/About'
