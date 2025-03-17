@@ -48,6 +48,23 @@
   box-sizing: border-box;
 }
 
+.dropdowns-wrapper {
+  display: flex;
+  gap: 20px; 
+  justify-content: space-between;
+
+  margin-top: 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.dropdown-container {
+  flex: 1; 
+}
+
 @media (max-width: 768px){
   .dropdown-list{
     gap: 10px;

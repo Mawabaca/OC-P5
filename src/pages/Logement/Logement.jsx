@@ -29,10 +29,14 @@ export default function Logement() {
           <Rating rating={logement.rating} />
         </div>
       </div>
-      
-      <div className="dropdown-list">
-        <Dropdown title="Description" content={logement.description} />
-        <Dropdown title="Équipements" content={logement.equipments} isList />
+
+      <div className="dropdowns-wrapper">
+        <div className="dropdown-container">
+          <Dropdown title="Description" content={logement.description} />
+        </div>
+        <div className="dropdown-container">
+          <Dropdown title="Équipements" content={logement.equipments} isList />
+        </div>
       </div>
     </main>
   );
