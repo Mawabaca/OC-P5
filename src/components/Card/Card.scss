@@ -36,6 +36,11 @@
   background-size: cover;
   position: relative;
 
+  @media (max-width: 768px)
+    {
+      width: 390px;
+    }
+    
   &::after {
       content: "";
       position: absolute;
@@ -51,4 +56,6 @@
   .card-item-title {
       z-index: 2; 
   }
+
+  
 }
